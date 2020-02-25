@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttershare/models/const.dart';
+import 'package:fluttershare/route_generator.dart';
 
 import 'pages/home.dart';
 
@@ -13,11 +14,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FlutterShare',
       debugShowCheckedModeBanner: false,
-      home: Home(),
       theme: ThemeData(
         primarySwatch: kPrimaryColor,
         accentColor: kAccentColor,
       ),
+
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
