@@ -43,17 +43,14 @@ class AuthService {
   Future singInAnonymously() {
     return _firebaseAuth.signInAnonymously();
   }
-  //Convert anonymous user with email
-
-  //Convert anonymous user with google
 
   // GOOGLE
-  //Future<String> signInWithGoogle() async {
-   // final GoogleSignInAccount account = await _googleSignIn.signIn();
-   // final GoogleSignInAuthentication _googleAuth = await account.authentication;
-   // final AuthCredential credential = GoogleAuthProvider.getCredential(
-     //   idToken: _googleAuth.idToken,
-    //    accessToken: _googleAuth.accessToken);
-    //return (await _firebaseAuth.signInWithCredential(credential)).uid;
-  //}
+  Future<String> signInWithGoogle() async {
+    final GoogleSignInAccount googleSignInAccount = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
+    final AuthCredential credential = GoogleAuthProvider.getCredential(idToken: googleSignInAuthentication.idToken, accessToken: googleSignInAuthentication.accessToken);
+    return (await _firebaseAuth.signInWithCredential(credential)).uid;
+
+
+  }
 }
