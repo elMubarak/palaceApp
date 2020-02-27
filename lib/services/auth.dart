@@ -50,7 +50,6 @@ class AuthService {
     final GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
     final AuthCredential credential = GoogleAuthProvider.getCredential(idToken: googleSignInAuthentication.idToken, accessToken: googleSignInAuthentication.accessToken);
     return (await _firebaseAuth.signInWithCredential(credential)).uid;
-
-
   }
+
 }

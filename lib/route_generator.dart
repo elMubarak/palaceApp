@@ -8,6 +8,7 @@ import 'package:fluttershare/pages/home.dart';
 import 'package:fluttershare/pages/post_screen.dart';
 import 'package:fluttershare/pages/profile.dart';
 import 'package:fluttershare/pages/search.dart';
+import 'package:fluttershare/pages/authHome.dart';
 import 'package:fluttershare/pages/timeline.dart';
 import 'package:fluttershare/pages/upload.dart';
 
@@ -15,7 +16,7 @@ class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch(settings.name) {
       case '/' :
-        return MaterialPageRoute(builder: (_) => Home());
+        return MaterialPageRoute(builder: (_) => AuthHome());
       case 'activityFeed' :
         return MaterialPageRoute(builder: (_) => ActivityFeed());
       case 'comments' :
