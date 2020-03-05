@@ -17,23 +17,25 @@ class RouteGenerator{
     switch(settings.name) {
       case '/' :
         return MaterialPageRoute(builder: (_) => AuthHome());
-      case 'activityFeed' :
+      case '/home' :
+        return MaterialPageRoute(builder: (_) => Home());
+      case '/activityFeed' :
         return MaterialPageRoute(builder: (_) => ActivityFeed());
-      case 'comments' :
+      case '/comments' :
         return MaterialPageRoute(builder: (_) => Comments());
-      case 'createAccount':
+      case '/createAccount':
         return MaterialPageRoute(builder: (_) => CreateAccount());
-      case 'editProfile':
+      case '/editProfile':
         return MaterialPageRoute(builder: (_) => EditProfile());
-      case 'postScreen' :
+      case '/postScreen' :
         return MaterialPageRoute(builder: (_) => PostScreen());
-      case 'profile':
+      case '/profile':
         return MaterialPageRoute(builder: (_) => Profile());
-      case 'search':
+      case '/search':
         return MaterialPageRoute(builder: (_) => Search());
-      case 'timeline':
+      case '/timeline':
         return MaterialPageRoute(builder: (_) => Timeline());
-      case 'upload':
+      case '/upload':
         return MaterialPageRoute(builder: (_) => Upload());
     }
   }

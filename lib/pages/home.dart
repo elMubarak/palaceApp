@@ -7,6 +7,7 @@ import 'package:fluttershare/pages/profile.dart';
 import 'package:fluttershare/pages/search.dart';
 import 'package:fluttershare/pages/timeline.dart';
 import 'package:fluttershare/pages/upload.dart';
+<<<<<<< HEAD
 import 'package:google_sign_in/google_sign_in.dart';
 
 //vars for DB
@@ -14,6 +15,8 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
 final usersRef = Firestore.instance.collection('users');
 final DateTime timeStamp = DateTime.now();
 
+=======
+>>>>>>> 006110fc06083c8994deeeaa873ca0f54df89d22
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -30,24 +33,11 @@ class _HomeState extends State<Home> {
   //on init
   void initState() {
     super.initState();
-    //signin user
-    googleSignIn.onCurrentUserChanged.listen((account) {
-      handleSignIn(account); //HS
-    }, onError: (err) {
-      print(
-        'Error SignIn: $err',
-      ); //on error handler
-    });
-    //re authenticate user silently
-    googleSignIn.signInSilently(suppressErrors: false).then((account) {
-      handleSignIn(account); //HS
-    }).catchError((err) {
-      print('Error SignIn: $err'); //catch error
-    });
     //page controller on init
     pageController = PageController(initialPage: 0);
   }
 
+<<<<<<< HEAD
   handleSignIn(GoogleSignInAccount account) {
     //HS Function
     if (account != null) {
@@ -61,6 +51,8 @@ class _HomeState extends State<Home> {
       });
     }
   }
+=======
+>>>>>>> 006110fc06083c8994deeeaa873ca0f54df89d22
 
 //create user in DB
   createUserInFirestore() async {
@@ -96,16 +88,6 @@ class _HomeState extends State<Home> {
     super.dispose();
   }
 
-//login function
-  login() {
-    googleSignIn.signIn();
-  }
-
-  //logout function
-  logout() {
-    googleSignIn.signOut();
-  }
-
   onPageChanged(int pageIndex) {
     setState(() {
       this.pageIndex = pageIndex;
@@ -116,7 +98,12 @@ class _HomeState extends State<Home> {
     pageController.animateToPage(
       pageIndex,
       duration: Duration(
+<<<<<<< HEAD
         milliseconds: 300,
+=======
+        milliseconds:300,
+
+>>>>>>> 006110fc06083c8994deeeaa873ca0f54df89d22
       ),
       curve: Curves.easeInOut,
     );
@@ -213,7 +200,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             GestureDetector(
-              onTap: () => login(),
+              onTap: () => {},
               child: Container(
                 width: 250.0,
                 height: 60,
