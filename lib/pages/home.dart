@@ -5,10 +5,6 @@ import 'package:fluttershare/pages/profile.dart';
 import 'package:fluttershare/pages/search.dart';
 import 'package:fluttershare/pages/timeline.dart';
 import 'package:fluttershare/pages/upload.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
-final GoogleSignIn googleSignIn = GoogleSignIn();
-
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -25,53 +21,16 @@ class _HomeState extends State<Home> {
   //on init
   void initState() {
     super.initState();
-    //signin user
-    googleSignIn.onCurrentUserChanged.listen((account) {
-      handleSignIn(account); //HS
-    }, onError: (err) {
-      print(
-        'Error SignIn: $err',
-      ); //on error handler
-    });
-    //re authenticate user silently
-    googleSignIn.signInSilently(suppressErrors: false).then((account) {
-      handleSignIn(account); //HS
-    }).catchError((err) {
-      print('Error SignIn: $err'); //catch error
-    });
     //page controller on init
     pageController = PageController(initialPage: 0);
   }
 
-  handleSignIn(GoogleSignInAccount account) {
-    //HS Function
-    if (account != null) {
-      print('User Signed In:$account');
-      setState(() {
-        isAuth = true;
-      });
-    } else {
-      setState(() {
-        isAuth = false;
-      });
-    }
-  }
 
   //dispose
   @override
   void dispose() {
     pageController.dispose();
     super.dispose();
-  }
-
-//login function
-  login() {
-    googleSignIn.signIn();
-  }
-
-  //logout function
-  logout() {
-    googleSignIn.signOut();
   }
 
   onPageChanged(int pageIndex) {
@@ -85,7 +44,7 @@ class _HomeState extends State<Home> {
       pageIndex,
       duration: Duration(
         milliseconds:300,
-        
+
       ),
       curve: Curves.easeInOut,
     );
@@ -178,7 +137,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             GestureDetector(
-              onTap: () => login(),
+              onTap: () => {},
               child: Container(
                 width: 250.0,
                 height: 60,
